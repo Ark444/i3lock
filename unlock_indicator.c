@@ -159,7 +159,7 @@ xcb_pixmap_t draw_image(uint32_t *resolution) {
          * (currently verifying, wrong password, or default) */
         switch (pam_state) {
             case STATE_PAM_VERIFY:
-                cairo_set_source_rgba(ctx, 0, 114.0 / 255, 255.0 / 255, 0.75);
+                cairo_set_source_rgba(ctx, 0.75, 0.75, 0.75, 0.50);
                 break;
             case STATE_PAM_WRONG:
                 cairo_set_source_rgba(ctx, 250.0 / 255, 0, 0, 0.75);
@@ -172,7 +172,7 @@ xcb_pixmap_t draw_image(uint32_t *resolution) {
 
         switch (pam_state) {
             case STATE_PAM_VERIFY:
-                cairo_set_source_rgb(ctx, 51.0 / 255, 0, 250.0 / 255);
+                cairo_set_source_rgb(ctx, 0.75, 0.75, 0.75);
                 break;
             case STATE_PAM_WRONG:
                 cairo_set_source_rgb(ctx, 125.0 / 255, 51.0 / 255, 0);

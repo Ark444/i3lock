@@ -22,7 +22,7 @@
 #include "unlock_indicator.h"
 #include "xinerama.h"
 
-#define BUTTON_RADIUS 90
+#define BUTTON_RADIUS 100
 #define BUTTON_SPACE (BUTTON_RADIUS + 5)
 #define BUTTON_CENTER (BUTTON_RADIUS + 5)
 #define BUTTON_DIAMETER (2 * BUTTON_SPACE)
@@ -147,7 +147,7 @@ xcb_pixmap_t draw_image(uint32_t *resolution) {
     if (unlock_state >= STATE_KEY_PRESSED && unlock_indicator) {
         cairo_scale(ctx, scaling_factor(), scaling_factor());
         /* Draw a (centered) circle with transparent background. */
-        cairo_set_line_width(ctx, 10.0);
+        cairo_set_line_width(ctx, 2.0);
         cairo_arc(ctx,
                   BUTTON_CENTER /* x */,
                   BUTTON_CENTER /* y */,
@@ -162,10 +162,10 @@ xcb_pixmap_t draw_image(uint32_t *resolution) {
                 cairo_set_source_rgba(ctx, 0.75, 0.75, 0.75, 0.50);
                 break;
             case STATE_PAM_WRONG:
-                cairo_set_source_rgba(ctx, 250.0 / 255, 0, 0, 0.75);
+                cairo_set_source_rgba(ctx, 250.0 / 255, 0, 0, 0.50);
                 break;
             default:
-                cairo_set_source_rgba(ctx, 0, 0, 0, 0.75);
+                cairo_set_source_rgba(ctx, 0, 0, 0, 0.50);
                 break;
         }
         cairo_fill_preserve(ctx);
@@ -184,8 +184,8 @@ xcb_pixmap_t draw_image(uint32_t *resolution) {
         cairo_stroke(ctx);
 
         /* Draw an inner seperator line. */
-        cairo_set_source_rgb(ctx, 0, 0, 0);
-        cairo_set_line_width(ctx, 2.0);
+        cairo_set_source_rgba(ctx, 0, 0, 0, 0.75);
+        cairo_set_line_width(ctx, 1.0);
         cairo_arc(ctx,
                   BUTTON_CENTER /* x */,
                   BUTTON_CENTER /* y */,

@@ -452,10 +452,6 @@ static void handle_key_press(xcb_key_press_event_t *event) {
              * see issue #50. */
             return;
 
-        case XKB_KEY_Delete:
-        case XKB_KEY_KP_Delete:
-            return;
-
         case XKB_KEY_BackSpace:
             if (input_position == 0)
                 return;

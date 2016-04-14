@@ -430,6 +430,8 @@ static void handle_key_press(xcb_key_press_event_t *event) {
         case XKB_KEY_Escape:
             if ((ksym == XKB_KEY_u && ctrl) ||
                 ksym == XKB_KEY_Escape) {
+                if (input_position == 0)
+                    return;
                 DEBUG("C-u pressed\n");
                 clear_input();
                 /* Hide the unlock indicator after a bit if the password buffer is
